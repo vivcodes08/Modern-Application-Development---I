@@ -5,8 +5,8 @@ from datetime import datetime
 showBluePrint=Blueprint('showBluePrint',__name__,url_prefix='/show')
 
 @showBluePrint.route('/')
-def createShowForm():
-    return "Welcome to the Show"
+def createShowForm(id):
+    return "Welcome to create Show Form"
 
 @showBluePrint.route('/createShow', methods=['POST'])
 def createShow():
@@ -24,7 +24,7 @@ def createShow():
             releaseDate=datetime.strptime(request.form.get('releaseDate'),'%m-%d-%Y').date(),
             ratings=request.form.get('ratings')
         )
-
+        
         db.session.add(new_show)
         db.session.commit()
 

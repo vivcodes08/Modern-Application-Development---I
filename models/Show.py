@@ -13,5 +13,11 @@ class Show(db.Model):
     length=db.Column(db.TIME)
     releaseDate=db.Column(db.DATE)
     ratings=db.Column(db.String(20))
+
+    @staticmethod
+    def showExists(id):
+        show=db.get_or_404(Show,id)
+        isExist=isinstance(show,Show)
+        return isExist;
     
 
