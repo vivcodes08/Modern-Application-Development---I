@@ -3,14 +3,17 @@ from config import db,app
 from models.Show import Show
 from datetime import datetime
 showBluePrint=Blueprint('showBluePrint',__name__,url_prefix='/show')
-from flask_login import login_required, current_user
+from models.User import User
+from flask_login import current_user,login_required
+
+
+
 @showBluePrint.route('/')
 def createShowForm():
     print(current_user.name)
     return current_user;
 
 @showBluePrint.route('/createShow', methods=['POST'])
-@login_required
 def createShow():
     if request.method=='POST':
         print("Form data\n",request.form)

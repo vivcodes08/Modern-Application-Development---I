@@ -10,7 +10,3 @@ db.init_app(app)
 loginManager=LoginManager()
 loginManager.init_app(app)
 
-from models.User import User
-@loginManager.user_loader
-def load_user(user_id):
-        return User.query.get(int(user_id))
