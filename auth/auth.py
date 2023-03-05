@@ -70,10 +70,12 @@ def login():
                         'role':user[4]
                     }
                     print(userObj)
-                    response=make_response(render_template('Users/home.html', name=userObj['name']))
+                    
+                    response=make_response(redirect('/home'))
                     userdetails=f"name:{userObj['name']}|email:{userObj['email']}|role:{userObj['role']}"
-                    print('userDetails', userdetails)
                     response.set_cookie('userDetails', userdetails )
+                    print('userDetails', userdetails)
+                    
                     session['userDetails']=userObj
                     return response
 
