@@ -72,7 +72,7 @@ def login():
                     print(userObj)
                     
                     response=make_response(redirect('/home'))
-                    userdetails=f"name:{userObj['name']}|email:{userObj['email']}|role:{userObj['role']}"
+                    userdetails=f"id:{userObj['id']}|name:{userObj['name']}|email:{userObj['email']}|role:{userObj['role']}"
                     response.set_cookie('userDetails', userdetails )
                     print('userDetails', userdetails)
                     

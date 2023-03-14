@@ -66,6 +66,13 @@ def updateVenue(venueId):
             res=Venue.updateVenue(venueId,request.form)
             return redirect('/admin/home')
      
+showTimings={
+     "Morning":"9:00 AM - 12:00 PM",
+     "Afternoon":"2:00 PM - 5:00 PM ",
+     "Night":"7:00 AM - 10:00 PM"
+
+}
+
 
 @adminBluePrint.route('/updateShow/<showId>', methods=['GET','POST'])
 def updateShow(showId):
@@ -74,8 +81,14 @@ def updateShow(showId):
         userDetails=cookietoDict(name)
         show=Show.getShowByShowId(showId)[0]
         print("Show In Update Show\n", show)
+        timings=showTimings[show['timings']]
+        print("Timings --", timings)
+
         venueList=Venue.getAllVenue()
-        return render_template('Admin/updateShow.html',show=show, userDetails=userDetails, venueList=venueList)
+        current_venue=Venue.getAllVenue(show['venue'])[0]['name']
+        print("current_venue---", current_venue)
+        
+        return render_template('Admin/updateShow.html',show=show, userDetails=userDetails, venueList=venueList,timings=timings, current_venue=current_venue)
       elif(request.method == 'POST'):
            res=Show.updateShow(showId,request.form)
            return redirect('/admin/home')
@@ -104,7 +117,7 @@ def login():
                     print(userObj)
                     
                     response=make_response(redirect('/admin/home'))
-                    userdetails=f"name:{userObj['name']}|email:{userObj['email']}|role:{userObj['role']}"
+                    userdetails=f"id:{userObj['id']}|name:{userObj['name']}|email:{userObj['email']}|role:{userObj['role']}"
                     response.set_cookie('userDetails', userdetails )
                     print('userDetails', userdetails)
                     

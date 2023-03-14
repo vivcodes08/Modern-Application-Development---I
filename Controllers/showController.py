@@ -5,6 +5,7 @@ from datetime import datetime
 showBluePrint=Blueprint('showBluePrint',__name__,url_prefix='/show')
 from models.User import User
 from flask_login import current_user,login_required
+from models.Venue import Venue
 
 def cookietoDict(cString):
       array=cString.split("|")
@@ -24,16 +25,17 @@ def createShowForm():
 def createShow():
     if request.method=='POST':
         print("Form data\n",request.form)
+        venueId=request.form.get('venue')
         new_show=Show(
             name=request.form.get('name') ,
             price=request.form.get('price'),
             tags=request.form.get('tags'),
             image=request.form.get('image'),
-            venue=request.form.get('venue') ,
-            description=request.form.get('description') or "",
+            venue=venueId ,
+            capacity=Venue.getCapacityByVenueId(venueId),
             languages=request.form.get('language')or " ",
-            length=datetime.strptime(request.form.get('length'),'%H:%M').time(),
-            # releaseDate=datetime.strptime(request.form.get('releaseDate'),'%m-%d-%Y').date() 
+            length=datetime.strptime("2:10",'%H:%M').time(),
+            timings=request.form.get('timings'),
             ratings=request.form.get('ratings')
         )
         

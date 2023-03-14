@@ -1,4 +1,4 @@
-from flask import Blueprint,request,jsonify,render_template
+from flask import Blueprint,request,jsonify,render_template, redirect
 from config import db
 from models.Show import Show
 homeBluePrint=Blueprint('homeBluePrint',__name__)
@@ -42,6 +42,11 @@ def dashboard():
         name=request.cookies.get('userDetails');
         userDetails=cookietoDict(name)
         return render_template('Users/dashboard.html',showList=showList, userDetails=userDetails)
+
+@homeBluePrint.route('/logout')
+def logout():
+      return redirect('/')
+
 
 
 @homeBluePrint.route('/')

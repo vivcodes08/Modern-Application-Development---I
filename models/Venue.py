@@ -64,4 +64,17 @@ class Venue(db.Model):
          sql=f"Update venue set name='{name}' , address='{address}' ,capacity={newVenue['capacity']}, image='{image}', pincode={newVenue['pincode']} , city='{city}' where id={id}"   
          res=db.engine.execute(sql)
          return 0;   
+    @staticmethod
+    def getCapacityByVenueId(venueId):
+         
+         sql=f"select capacity from venue where id={venueId}"
+         res=db.engine.execute(sql)
+         capacity=[]
+         for i in res:
+            dict={
+                   "capacity":i[0]
+              }
+            capacity.append(dict) 
+         print(capacity)
+         return capacity[0]['capacity']
 

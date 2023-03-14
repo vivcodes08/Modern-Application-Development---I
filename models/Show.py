@@ -8,10 +8,10 @@ class Show(db.Model):
     tags=db.Column(db.String(1000))
     image=db.Column(db.String(2000))
     venue=db.Column(db.Integer)
-    description=db.Column(db.String(200))
+    capacity=db.Column(db.Integer)
     languages=db.Column(db.String(200))
     length=db.Column(db.TIME)
-    releaseDate=db.Column(db.DATE)
+    timings=db.Column(db.String(100))
     ratings=db.Column(db.String(20))
 
     @staticmethod
@@ -56,10 +56,10 @@ class Show(db.Model):
                 'tags':i[3],
                 'image':i[4],
                 'venue':i[5],
-                'description':i[6],
+                'capacity':i[6],
                 'language':i[7],
                 'length':i[8],
-                'releaseDate':i[9],
+                'timings':i[9],
                 'ratings':i[10]
             }
             shows.append(dict)
@@ -79,10 +79,10 @@ class Show(db.Model):
                 'tags':i[3],
                 'image':i[4],
                 'venue':i[5],
-                'description':i[6],
+                'capacity':i[6],
                 'language':i[7],
                 'length':i[8],
-                'releaseDate':i[9],
+                'timings':i[9],
                 'ratings':i[10]
             }
             shows.append(dict)
