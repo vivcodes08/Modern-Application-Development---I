@@ -33,6 +33,8 @@ def book():
         quantity=int(request.form.get('quantity'))
         price=int(request.form.get('price'))
         total_amount=quantity*price
+        showId=request.form['show_id']
+        quantity=request.form['quantity']
         new_booking=Booking(
             show_id=request.form.get('show_id'),
             venue_id=request.form.get('venue_id'),
@@ -42,8 +44,10 @@ def book():
             total_amount=total_amount,
             bookedon=datetime_object
         )
+        
         db.session.add(new_booking)
         db.session.commit() 
+        Show.updateSeats(showId,quantity)
         return "Booked Successfully"
     
 
@@ -54,6 +58,15 @@ def bookNow(showId):
     name=request.cookies.get('userDetails');
     userDetails=cookietoDict(name)
     return render_template('Users/book.html', userDetails=userDetails, showDetails=showDetails, venueDetails=venueDetails)  
+
+@bookBluePrint.route('/review', methods=['POST'])
+def review():
+     bookId=int(request.form.get('id'))
+     review=request.form.get('review')
+     ratings=int(request.form.get('default-radio'))
+     
+     Booking.reviewRatingUpdate(bookId, review,ratings)
+     return ""
 
 
 @bookBluePrint.route('/myrequest/<userId>',methods=['GET'])

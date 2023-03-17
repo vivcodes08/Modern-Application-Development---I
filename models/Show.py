@@ -33,7 +33,7 @@ class Show(db.Model):
                 'tags':i[3],
                 'image':i[4],
                 'venue':i[5],
-                'description':i[6],
+                'capacity':i[6],
                 'language':i[7],
                 'length':i[8],
                 'releaseDate':i[9],
@@ -97,6 +97,20 @@ class Show(db.Model):
         res=db.engine.execute(sql)
         print(res)
         return res;      
+
+    @staticmethod
+    def updateSeats(showId,quantity):
+        sql=f"select capacity from show where id={showId}"
+        res=db.engine.execute(sql)
+        count=0
+        for x in res:
+            count=x[0]
+        print(count)
+        new_count=count-int(quantity)
+        sql2=f"update show set capacity={new_count} where id={showId}"
+        res2=db.engine.execute(sql2)
+        return None   
+
 
     @staticmethod
     def updateShow(id, newShow):
