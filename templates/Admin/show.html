@@ -61,13 +61,13 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                   Show Name<span class="text-rose-600">*</span>
                 </label>
-                <input name='name' class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Show Name">
+                <input name='name'  required class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Show Name">
               </div>
               <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" >
                   Tags<span class="text-rose-600">*</span>
                 </label>
-                <input name="tags" class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="Eg. Comedy | Horror | Sci-Fi">
+                <input name="tags" required class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="Eg. Comedy | Horror | Sci-Fi">
                
               </div>
               <div class="mb-4">
@@ -81,14 +81,14 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" >
                   Price<span class="text-rose-600">*</span>
                 </label>
-                <input name="price" class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="number" placeholder="Price">
+                <input name="price"  required class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="number" placeholder="Price">
                
               </div>
               <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" >
                   Image<span class="text-rose-600">*</span>
                 </label>
-                <input name="image" class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="Image URL">
+                <input name="image"  required class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="Image URL">
                
               </div>
               <!-- <div class="mb-4">
@@ -104,8 +104,8 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" >
                   Timings<span class="text-rose-600">*</span>
                 </label>
-                <select name="timings"  class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="Enter the Venue">
-                    <option>Select...</option>
+                <select name="timings"  required  class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="Enter the Venue" required>
+                    <option value="">Select...</option>
                     
                     <option value="Morning">9:00 AM - 12:00 PM </option>
                     <option value="Afternoon">2:00 PM - 5:00 PM </option>
@@ -119,8 +119,8 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" >
                   Venue<span class="text-rose-600">*</span>
                 </label>
-                <select name="venue"  class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="Enter the Venue">
-                    <option>Select...</option>
+                <select name="venue"  class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="Enter the Venue" required>
+                    <option value="" >Select...</option>
                     {% for venue in venueList%}
                     <option value={{ venue['id'] }}>{{ venue['name'] }} </option>
                     {% endfor%}
@@ -130,7 +130,7 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" >
                   Language<span class="text-rose-600">*</span>
                 </label>
-                <input name="language" class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="Language">
+                <input name="language"  required class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="Language">
                
               </div>
               
