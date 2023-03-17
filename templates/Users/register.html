@@ -20,6 +20,16 @@
               <!-- <% if(messages.error){ %>
                 <span class="text-red-600 font-bold ">All Fields are required !!</span>
                 <% } %> -->
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                       <ul class=flashes>
+                                 {% for category, message in messages %}
+                                     <li class="{{ category }}  text-red-600  shadow-sm  font-sans font-bold flex justify-center" >{{ message }}</li>
+                                 {% endfor %}
+                         </ul>
+                     {% endif %}
+              {% endwith %}
               
               <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">

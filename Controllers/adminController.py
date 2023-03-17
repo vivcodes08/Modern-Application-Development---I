@@ -1,10 +1,11 @@
-from flask import Blueprint,request,jsonify,render_template,make_response,redirect,session
+from flask import Blueprint,request,jsonify,render_template,make_response,flash,redirect,session,url_for
 from config import db
 from models.Show import Show
 from models.User import User
 from models.Venue import Venue
 from models.Show import Show
 from werkzeug.security import generate_password_hash,check_password_hash
+import re
 adminBluePrint=Blueprint('adminBluePrint',__name__ ,url_prefix='/admin')
 
 def cookietoDict(cString):
@@ -103,10 +104,18 @@ def login():
         password=request.form.get('password')
         stayLogin=True if request.form.get('stayLogin') else False
         
+        if(re.search("'",email) or re.search('"', email) ):
+            flash("Invalid EmailD !! Only Alphanumeric Email Id's are Allowed", 'error')
+            return redirect(url_for('adminBluePrint.login'))
+        
+        
         if User.find_user(email,'find'):
             user=User.find_user(email,'detail')
             passTest=check_password_hash(user.password, password)
-            if(user.role!='Admin'): return "Your are not Admin"
+            if(user.role!='Admin'):
+                flash("You don't have Admin Privileges")
+                return redirect(url_for('adminBluePrint.login'))
+            
             if passTest:
                     userObj={
                         'id':user[0],
@@ -125,9 +134,11 @@ def login():
                     return response
 
             else:
-                return "Invalid Password"
+                flash("Invalid Password", 'error')
+                return redirect(url_for('adminBluePrint.login'))
 
         else:
-            return "Invalid Email"    
+              flash("Invalid Email Id", 'error')
+              return redirect(url_for('adminBluePrint.login'))  
         
 

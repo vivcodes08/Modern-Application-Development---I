@@ -1,11 +1,12 @@
-from flask import Blueprint, request,render_template,url_for,make_response,session, redirect
+from flask import Blueprint, request,render_template,url_for,make_response,session, redirect, flash
 from config import db
 from models.User import User
 from werkzeug.security import generate_password_hash,check_password_hash
-
+from .functions import signupvalidator
 authBluePrint=Blueprint('authBluePrint', __name__)
 from flask_login import current_user,login_required
 from config import loginManager
+import re
 loginManager.login_view='login'
 @loginManager.user_loader
 def load_user(user_id):
@@ -34,9 +35,22 @@ def signup():
         email=request.form.get('email')
         password=request.form.get('password')
         
+        if(re.search("'",email) or re.search('"', email) ):
+            flash("Invalid EmailD !! Only Alphanumeric Email Id's are Allowed", 'error')
+            return redirect(url_for('authBluePrint.signup'))
+
         user_exist=User.find_user(email, 'find')
         if user_exist:
-            return "Email Id Already Exists"
+            flash("Email Id Already Exist",'error')
+            return redirect(url_for('authBluePrint.signup'))
+        
+        err=signupvalidator(name,email,password)
+        if(err!=""):
+            flash(err,'error')
+            return redirect(url_for('authBluePrint.signup'))
+        
+
+        
         new_user=User(
             name=name,
             email=email,
@@ -80,7 +94,9 @@ def login():
                     return response
 
             else:
-                return "Invalid Password"
+                flash("Invalid Password", 'error')
+                return redirect(url_for('authBluePrint.login'))
 
         else:
-            return "Invalid Email"        
+            flash("Invalid Email Id", 'error')
+            return redirect(url_for('authBluePrint.login'))        

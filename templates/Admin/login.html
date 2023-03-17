@@ -23,7 +23,17 @@
               <span class="text-red-600 font-bold ">Wrong UserName or Password !!</span>
               <% } %> -->
     
-              
+              {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                     <ul class=flashes>
+                               {% for category, message in messages %}
+                                   <li class="{{ category }}  text-red-600  shadow-sm  font-sans font-bold flex justify-center" >{{ message }}</li>
+                               {% endfor %}
+                       </ul>
+             {% endif %}
+       {% endwith %}
+
+
               <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                   Username
@@ -41,9 +51,7 @@
                 <button type='submit 'class="bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">
                   Login
                 </button>
-                <a class="inline-block align-baseline font-bold text-sm text-orange-300 hover:text-orange-500" href="/register">
-                  Don't have a Account?
-                </a>
+                
               </div>
             </form>
             <p class="text-center text-gray-500 text-xs">
