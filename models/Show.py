@@ -21,9 +21,21 @@ class Show(db.Model):
         return isExist;
 
     @staticmethod
-    def getShowByName(name=""):
-        res=db.engine.execute(f"Select * from Show where name like '%{name}%'")
+    def getShowByName(name,category):
+        sql=""
+        print("Name:-",name)
+        print("Category:-",category)
+        if(category=='Show'):
+                sql=f"Select * from Show where name like '%{name}%'"
+        elif(category =='Venue'):
+                sql=f"SELECT s.id, s.name,s.price , s.tags , s.image ,s.venue ,s.capacity ,s.languages ,s.length,s.timings ,s.ratings   from show as s inner join venue as v where s.venue =v.id and v.name like '%{name}%'"               
+        else:
+                print("inside else")
+                sql=f"SELECT s.id, s.name,s.price , s.tags , s.image ,s.venue ,s.capacity ,s.languages ,s.length,s.timings ,s.ratings   from show as s inner join venue as v where s.venue =v.id and v.city like '%{name}%'"                 
+       
+        res=db.engine.execute(sql)
         result=res.fetchall()
+
         shows=[]
         for i in result:
             dict={

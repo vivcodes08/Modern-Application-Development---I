@@ -11,7 +11,8 @@
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
                   <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                  <a href="/home" class=" mt-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+                  <a href="/home" class=" mt-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
+                  <a href="/dashboard" class=" mt-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">All Shows</a>
                   <a href="/book/myrequest/{{ userDetails['id']}}" class="mt-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">My Request</a>
 
                 </div>
@@ -40,11 +41,11 @@
  <div class="flex justify-center mt-40">
   <div class="relative w-2/3 flex">
     
-      <select name="select"  class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button" id="cars">
-        <option class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" name="type" >Show</option>
-        <option value="saab">City</option>
-        <option value="mercedes">Venue</option>
-        <option value="audi">Show</option>
+      <select name="category"  class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button" id="cars">
+        <option  value="Show" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" name="type" >Show</option>
+        <option value="City">City</option>
+        <option value="Venue">Venue</option>
+     
       </select>
       <input type="text" name="searchtext" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50  border-l-gray-100 border-l-2 border border-gray-300 focus:border-teal-500 focus:border-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-teal-500 focus:outline-none" placeholder="Enter Show ,Venue, City" required>
       <button type="submit" name="searchtext" class="bg-blue-700 text-white px-2 py-2 border-collapse font-bold hover:bg-green-500 hover:text-black hover:font-bold">

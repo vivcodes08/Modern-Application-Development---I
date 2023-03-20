@@ -6,8 +6,10 @@ homeBluePrint=Blueprint('homeBluePrint',__name__)
 @homeBluePrint.route('/search' ,methods=[ 'POST'])
 def search():
     if request.method == 'POST':
+        category=request.form["category"]
         name=request.form["searchtext"]
-        res=Show.getShowByName(name)
+        print(request.form)
+        res=Show.getShowByName(name,category)
         print("Home Result\n", res)
         name=request.cookies.get('userDetails');
         userDetails=cookietoDict(name)
