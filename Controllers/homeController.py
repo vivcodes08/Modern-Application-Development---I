@@ -39,7 +39,7 @@ def home():
 
 @homeBluePrint.route('/dashboard')
 def dashboard():
-        showList= Show.getShowByName()
+        showList= Show.getShowByName(name="", category="Show")
         print("ShowList\n", showList)
         name=request.cookies.get('userDetails');
         userDetails=cookietoDict(name)
