@@ -78,7 +78,7 @@ def updateVenue(venueId):
 showTimings={
      "Morning":"9:00 AM - 12:00 PM",
      "Afternoon":"2:00 PM - 5:00 PM ",
-     "Night":"7:00 AM - 10:00 PM"
+     "Night":"7:00 PM - 10:00 PM"
 
 }
 
