@@ -16,9 +16,9 @@ def signupvalidator(name,email,password):
     elif not re.search(r'[a-z]', password):
             return "Password should at least contain  1  lowercase characters"
     
-#     elif not re.search("'",email):
-#            print("inside the comma blocj")
-#            return "Invalid EmailD !! Only Alphanumeric Email Id's are Allowed"            
+    elif not re.search("'",email):
+           print("inside the comma blocj")
+           return "Invalid EmailD !! Only Alphanumeric Email Id's are Allowed"            
     else:
            return ""
      
