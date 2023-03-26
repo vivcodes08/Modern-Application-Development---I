@@ -1,4 +1,4 @@
-from flask import Blueprint,redirect,render_template,request
+from flask import Blueprint,redirect,render_template,request,url_for
 from models.Booking import Booking
 from config import db
 from datetime import datetime
@@ -66,7 +66,7 @@ def review():
      ratings=int(request.form.get('default-radio'))
      
      Booking.reviewRatingUpdate(bookId, review,ratings)
-     return ""
+     return redirect(url_for('homeBluePrint.home'))
 
 
 @bookBluePrint.route('/myrequest/<userId>',methods=['GET'])
