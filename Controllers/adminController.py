@@ -21,6 +21,8 @@ def show():
     if request.method=='GET':
         name=request.cookies.get('userDetails');
         userDetails=cookietoDict(name)
+        if(userDetails['role'] != 'Admin'):
+             return render_template('Admin/404.html')
         venueList=Venue.getAllVenue()
 
         return render_template('Admin/show.html', userDetails=userDetails,venueList=venueList)
@@ -33,6 +35,8 @@ def venue():
     if request.method=='GET':
         name=request.cookies.get('userDetails');
         userDetails=cookietoDict(name)
+        if(userDetails['role'] != 'Admin'):
+             return render_template('Admin/404.html')
 
         return render_template('Admin/venue.html', userDetails=userDetails)    
 
@@ -43,6 +47,8 @@ def home():
     print(venueList)
     name=request.cookies.get('userDetails');
     userDetails=cookietoDict(name)
+    if(userDetails['role'] != 'Admin'):
+             return render_template('Admin/404.html')
     return render_template('Admin/home.html',  userDetails=userDetails, venueList=venueList)
 
 @adminBluePrint.route('/deleteShow/<showId>/<venueId>' ,methods=['GET'])
@@ -60,6 +66,8 @@ def updateVenue(venueId):
      if request.method=='GET':
         name=request.cookies.get('userDetails');
         userDetails=cookietoDict(name)
+        if(userDetails['role'] != 'Admin'):
+             return render_template('Admin/404.html')
         venue=Venue.getAllVenue(venueId)[0]
         print("Venue In Update Venue\n", venue)
         return render_template('Admin/updateVenue.html',venue=venue, userDetails=userDetails)
@@ -80,6 +88,8 @@ def updateShow(showId):
       if request.method=='GET':
         name=request.cookies.get('userDetails');
         userDetails=cookietoDict(name)
+        if(userDetails['role'] != 'Admin'):
+             return render_template('Admin/404.html')
         show=Show.getShowByShowId(showId)[0]
         print("Show In Update Show\n", show)
         timings=showTimings[show['timings']]

@@ -26,12 +26,14 @@ class Show(db.Model):
         print("Name:-",name)
         print("Category:-",category)
         if(category=='Show'):
-                sql=f"Select * from Show where name like '%{name}%'"
+                sql=f"Select s.id, s.name,s.price , s.tags , s.image ,s.venue ,s.capacity ,s.languages ,s.length,s.timings ,s.ratings, v.name, v.city from show s inner join venue v on s.venue=v.id where s.name like '%{name}%'"
         elif(category =='Venue'):
-                sql=f"SELECT s.id, s.name,s.price , s.tags , s.image ,s.venue ,s.capacity ,s.languages ,s.length,s.timings ,s.ratings   from show as s inner join venue as v where s.venue =v.id and v.name like '%{name}%'"               
+                sql=f"SELECT s.id, s.name,s.price , s.tags , s.image ,s.venue ,s.capacity ,s.languages ,s.length,s.timings ,s.ratings, v.name, v.city   from show as s inner join venue as v where s.venue =v.id and v.name like '%{name}%'"               
+        elif(category == 'Tags'):
+              sql=f"SELECT s.id, s.name,s.price , s.tags , s.image ,s.venue ,s.capacity ,s.languages ,s.length,s.timings ,s.ratings, v.name, v.city   from show as s inner join venue as v where s.venue =v.id and s.tags like '%{name}%'"
         else:
                 print("inside else")
-                sql=f"SELECT s.id, s.name,s.price , s.tags , s.image ,s.venue ,s.capacity ,s.languages ,s.length,s.timings ,s.ratings   from show as s inner join venue as v where s.venue =v.id and v.city like '%{name}%'"                 
+                sql=f"SELECT s.id, s.name,s.price , s.tags , s.image ,s.venue ,s.capacity ,s.languages ,s.length,s.timings ,s.ratings, v.name, v.city   from show as s inner join venue as v where s.venue =v.id and v.city like '%{name}%'"                 
        
         res=db.engine.execute(sql)
         result=res.fetchall()
@@ -49,7 +51,9 @@ class Show(db.Model):
                 'language':i[7],
                 'length':i[8],
                 'releaseDate':i[9],
-                'ratings':i[10]
+                'ratings':'{:0.2f}'.format(float(i[10])),
+                'vname':i[11],
+                'city':i[12]
             }
             shows.append(dict)
 
@@ -72,7 +76,7 @@ class Show(db.Model):
                 'language':i[7],
                 'length':i[8],
                 'timings':i[9],
-                'ratings':i[10]
+                'ratings':'{:0.2f}'.format(float(i[10]))
             }
             shows.append(dict)
 
@@ -95,7 +99,7 @@ class Show(db.Model):
                 'language':i[7],
                 'length':i[8],
                 'timings':i[9],
-                'ratings':i[10]
+                'ratings':'{:0.2f}'.format(float(i[10]))
             }
             shows.append(dict)
 
@@ -130,7 +134,7 @@ class Show(db.Model):
          language=newShow['language'].replace("'","''")
          image=newShow['image'].replace("'","''")
          tags=newShow['tags'].replace("'","''")
-         sql=f"Update show set name='{name}' ,ratings='{newShow['ratings']}' ,languages='{language}' ,price={newShow['price']}, image='{image}',  tags='{tags}' where id={id}"   
+         sql=f"Update show set name='{name}' ,ratings='{newShow['ratings']}' ,languages='{language}' ,price={newShow['price']},venue={newShow['venue']}, image='{image}',  tags='{tags}' where id={id}"   
          res=db.engine.execute(sql)
          return 0;   
             

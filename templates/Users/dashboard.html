@@ -1,7 +1,7 @@
 {% extends "Users/base.html" %}
 {% block body%}
 
-<nav class="bg-gray-800">
+<nav class="bg-gray-800 sticky top-0">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       
@@ -14,7 +14,7 @@
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="../home" class=" mt-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
             <a href="/dashboard" class=" mt-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">All Shows</a>
-            <a href="/book/myrequest/{{ userDetails['id']}}" class="mt-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">My Request</a>
+            <a href="/book/myrequest/{{ userDetails['id']}}" class="mt-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">My Bookings</a>
 
           </div>
         </div>
@@ -57,8 +57,8 @@
     </div>
     <div class="flex flex-col justify-center "> 
       <span class="text-white font-medium font-serif rounded-full px-3 bg-zinc-900">{{show['releaseDate']}} Show</span>
-      <span class="text-red-600 font-medium font-serif rounded-full px-3 bg-zinc-900">City:- <span class="text-white">Jamnagar</span></span>
-      <span class="text-red-600 font-medium font-serif rounded-full px-3 bg-zinc-900">Venue:-<span class="text-white">Alerbet Ekka hall</span></span>
+      <span class="text-red-600 font-medium font-serif rounded-full px-3 bg-zinc-900">City:- <span class="text-white">{{show['city']}}</span></span>
+      <span class="text-red-600 font-medium font-serif rounded-full px-3 bg-zinc-900">Venue:-<span class="text-white">{{show['vname']}}</span></span>
       </div>
     <div class="flex justify-center w-52">
       {% if show['capacity'] != 0 %}

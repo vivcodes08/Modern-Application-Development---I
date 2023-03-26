@@ -13,7 +13,7 @@
                   <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                   <a href="/home" class=" mt-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                   <a href="/dashboard" class=" mt-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">All Shows</a>
-                  <a href="/book/myrequest/{{ userDetails['id']}}" class="mt-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">My Request</a>
+                  <a href="/book/myrequest/{{ userDetails['id']}}" class="mt-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">My Bookings</a>
 
                 </div>
               </div>
@@ -45,9 +45,10 @@
         <option  value="Show" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" name="type" >Show</option>
         <option value="City">City</option>
         <option value="Venue">Venue</option>
+        <option value="Tags">Tags</option>
      
       </select>
-      <input type="text" name="searchtext" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50  border-l-gray-100 border-l-2 border border-gray-300 focus:border-teal-500 focus:border-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-teal-500 focus:outline-none" placeholder="Enter Show ,Venue, City" required>
+      <input type="text" name="searchtext" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50  border-l-gray-100 border-l-2 border border-gray-300 focus:border-teal-500 focus:border-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-teal-500 focus:outline-none" placeholder="Enter Show ,Venue, City, Tags" required>
       <button type="submit" name="searchtext" class="bg-blue-700 text-white px-2 py-2 border-collapse font-bold hover:bg-green-500 hover:text-black hover:font-bold">
         Search
     </button>

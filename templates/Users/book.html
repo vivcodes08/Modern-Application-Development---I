@@ -52,7 +52,7 @@
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/home" class=" mt-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
-              <a href="/book/myrequest/{{ userDetails['id']}}" class="mt-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">My Request</a>
+              <a href="/book/myrequest/{{ userDetails['id']}}" class="mt-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">My Bookings</a>
 
             </div>
           </div>
@@ -89,7 +89,7 @@
                 <div class="flex flex-col">
                 <span class="text-sm text-blue-600 font-bold">Venue :{{ venueDetails.name }}</span>
                 <span class="text-sm text-blue-600 font-serif font-bold">Timings : {{ showDetails['timings'] }}</span>
-                <span class="text-sm text-blue-600 font-sans font-bold"> Price-${{  showDetails['price']  }} per person</span>
+                <span class="text-sm text-blue-600 font-sans font-bold"> Price-₹{{  showDetails['price']  }} per person</span>
                 </div>
                 
               
