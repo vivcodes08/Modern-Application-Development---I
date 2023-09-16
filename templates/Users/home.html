@@ -1,0 +1,72 @@
+{% extends "Users/base.html" %}
+{% block body%}
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div class="flex flex-shrink-0 items-center">
+             <svg class="block w-12 h-12" viewBox="0 0 1024.00 1024.00" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#1c0808" stroke="#1c0808" stroke-width="17.408" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M943.227049 859.580082v87.435297h-434.682901c98.144922 0 188.745153-32.544473 261.506665-87.435297h173.176236z" fill="#f0aa14"></path><path d="M508.544148 77.681546c240.055446 0 434.682901 194.595486 434.682901 434.650932 0 141.910524-67.998127 267.900471-173.176236 347.247604-72.761512 54.890825-163.361743 87.435297-261.506665 87.435297-240.055446 0-434.650932-194.595486-434.650932-434.682901 0-240.055446 194.595486-434.650932 434.650932-434.650932z m276.372264 278.098592c0-53.548125-43.413943-96.930099-96.962068-96.930099-53.516156 0-96.930099 43.381974-96.930099 96.930099s43.413943 96.962068 96.930099 96.962068c53.548125 0 96.962068-43.413943 96.962068-96.962068z m0 337.81674c0-53.548125-43.413943-96.962068-96.962068-96.962068-53.516156 0-96.930099 43.413943-96.930099 96.962068 0 53.516156 43.413943 96.930099 96.930099 96.930099 53.548125 0 96.962068-43.413943 96.962068-96.930099z m-223.335643-168.924355c0-23.465268-19.053542-42.486841-42.51881-42.48684s-42.486841 19.021573-42.486841 42.48684c0 23.497237 19.021573 42.51881 42.486841 42.51881s42.51881-19.021573 42.51881-42.51881z m-114.481097-168.892385c0-53.548125-43.381974-96.930099-96.930099-96.930099s-96.930099 43.381974-96.930099 96.930099 43.381974 96.962068 96.930099 96.962068 96.930099-43.413943 96.930099-96.962068z m0 337.81674c0-53.548125-43.381974-96.962068-96.930099-96.962068s-96.930099 43.413943-96.930099 96.962068c0 53.516156 43.381974 96.930099 96.930099 96.930099s96.930099-43.413943 96.930099-96.930099z" fill="#f0aa14"></path><path d="M508.544148 969.3937c-252.00547 0-457.029253-205.036571-457.029253-457.061222 0-252.008667 205.023783-457.029253 457.029253-457.029253 252.024651 0 457.061222 205.020586 457.061222 457.029253 0 144.74298-66.364509 277.820461-182.076414 365.111898-79.740352 60.152927-174.829034 91.949324-274.984808 91.949324z m0-869.333833c-227.328575 0-412.272611 184.944035-412.272611 412.272611 0 227.347757 184.944035 412.30458 412.272611 412.30458 90.350873 0 176.117386-28.67622 248.028522-82.92127 104.398064-78.758902 164.276058-198.812201 164.276058-329.38331 0-227.328575-184.96002-412.272611-412.30458-412.272611z" fill="#000000"></path><path d="M340.578864 465.529818c-65.78587 0-119.30842-53.535338-119.30842-119.340389 0-65.78587 53.52255-119.30842 119.30842-119.30842 65.789067 0 119.30842 53.52255 119.30842 119.30842 0 65.805051-53.519353 119.340389-119.30842 119.340389z m0-193.892167c-41.105779 0-74.551778 33.442802-74.551778 74.551778 0 41.12496 33.442802 74.583747 74.551778 74.583747s74.551778-33.458787 74.551778-74.583747c0-41.108976-33.442802-74.551778-74.551778-74.551778zM678.363635 465.529818c-65.78587 0-119.30842-53.535338-119.30842-119.340389 0-65.78587 53.52255-119.30842 119.30842-119.30842 65.805051 0 119.340389 53.52255 119.340389 119.30842 0 65.805051-53.535338 119.340389-119.340389 119.340389z m0-193.892167c-41.105779 0-74.551778 33.442802-74.551778 74.551778 0 41.12496 33.445999 74.583747 74.551778 74.583747 41.12496 0 74.583747-33.458787 74.583747-74.583747 0-41.108976-33.458787-74.551778-74.583747-74.551778zM340.578864 803.314589c-65.78587 0-119.30842-53.52255-119.30842-119.30842 0-65.805051 53.52255-119.340389 119.30842-119.340389 65.789067 0 119.30842 53.535338 119.30842 119.340389 0 65.78587-53.519353 119.30842-119.30842 119.30842z m0-193.892167c-41.105779 0-74.551778 33.458787-74.551778 74.583747 0 41.105779 33.442802 74.551778 74.551778 74.551778s74.551778-33.445999 74.551778-74.551778c0-41.128157-33.442802-74.583747-74.551778-74.583747zM678.363635 803.314589c-65.78587 0-119.30842-53.52255-119.30842-119.30842 0-65.805051 53.52255-119.340389 119.30842-119.340389 65.805051 0 119.340389 53.535338 119.340389 119.340389 0 65.78587-53.535338 119.30842-119.340389 119.30842z m0-193.892167c-41.105779 0-74.551778 33.458787-74.551778 74.583747 0 41.105779 33.445999 74.551778 74.551778 74.551778 41.12496 0 74.583747-33.445999 74.583747-74.551778 0-41.128157-33.458787-74.583747-74.583747-74.583747zM509.47125 579.978945c-35.766951 0-64.865162-29.110999-64.865162-64.897131 0-35.766951 29.098211-64.865162 64.865162-64.865161 35.782935 0 64.897131 29.098211 64.897131 64.865161 0 35.782935-29.114196 64.897131-64.897131 64.897131z m0-85.00565a20.134095 20.134095 0 0 0-20.10852 20.108519c0 11.106041 9.02166 20.140489 20.10852 20.140489 11.106041 0 20.140489-9.034448 20.140489-20.140489 0-11.08686-9.034448-20.10852-20.140489-20.108519zM943.227049 969.3937h-434.682901a22.378321 22.378321 0 1 1 0-44.756642h434.682901a22.378321 22.378321 0 1 1 0 44.756642zM943.227049 881.958403h-173.176236a22.378321 22.378321 0 1 1 0-44.756642h173.176236a22.378321 22.378321 0 1 1 0 44.756642z" fill="#000000"></path></g></svg>
+              </div>
+              <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a href="/home" class=" mt-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
+                  <a href="/dashboard" class=" mt-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">All Shows</a>
+                  <a href="/book/myrequest/{{ userDetails['id']}}" class="mt-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">My Bookings</a>
+
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <span  class="bg-gray-900 text-orange-500 rounded-md px-3 py-2 text-sm font-medium mr-2 ">{{ userDetails['name'] }}</span>
+                <a href="/logout" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Logout</a>
+              </button>
+      
+              <!-- Profile dropdown -->
+              <div class="relative ml-3">
+                <div>
+                  <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                    <span class="sr-only">Open user menu</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+       
+      </nav>
+      <form action="/search" method="POST">
+ <div class="flex justify-center mt-40">
+  <div class="relative w-2/3 flex">
+    
+      <select name="category"  class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button" id="cars">
+        <option  value="Show" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" name="type" >Show</option>
+        <option value="City">City</option>
+        <option value="Venue">Venue</option>
+        <option value="Tags">Tags</option>
+     
+      </select>
+      <input type="text" name="searchtext" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50  border-l-gray-100 border-l-2 border border-gray-300 focus:border-teal-500 focus:border-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-teal-500 focus:outline-none" placeholder="Enter Show ,Venue, City, Tags" required>
+      <button type="submit" name="searchtext" class="bg-blue-700 text-white px-2 py-2 border-collapse font-bold hover:bg-green-500 hover:text-black hover:font-bold">
+        Search
+    </button>
+   
+  
+</div>
+ </div>
+</form>
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,8 +18,8 @@ def createVenue():
             address=request.form.get('address'),
             city=request.form.get('city'),
             image=request.form.get('image'),
-            poster=request.form.get('poster'),
-            description=request.form.get('description'),
+            poster=request.form.get('poster') or "",
+            description=request.form.get('description') or "",
             pincode=request.form.get('pincode'),
             ratings=request.form.get('ratings')
         )
