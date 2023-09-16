@@ -19,7 +19,7 @@ On other Hands, this application also provide a admin section where admin has a 
 ## Installation
 
 1.Clone and unzip the  project  
-2.Go inside the Project/ticketShow folder  
+2.Go inside the 21f3002861/ticketApp folder  
 3.Open command prompt in this folder  
 4.Create a Virtual environment using
 ```bash
@@ -43,7 +43,7 @@ To run this project run
 
 
 ## Video Link
-
+https://drive.google.com/file/d/195hTm3Qz4ohO4NrRaPsaMoip154w8r0_/view?usp=share_link
 
 ## License
 All rights are reserved by the Author of the project or IITM organization
