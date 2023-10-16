@@ -19,4 +19,4 @@ app.register_blueprint(homeBluePrint)
 app.register_blueprint(adminBluePrint)
 app.register_blueprint(bookBluePrint)
 
-app.run(debug=True)
+# app.run(debug=True)
