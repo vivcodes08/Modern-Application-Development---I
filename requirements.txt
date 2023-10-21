@@ -12,3 +12,4 @@ python-dotenv==0.21.1
 setuptools==65.5.0
 SQLAlchemy==1.4.46
 Werkzeug==2.2.2
+Gunicorn
